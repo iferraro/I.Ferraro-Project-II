@@ -5,20 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title><%= tabTitle %> </title>
+    <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
     <!-- Add login UI here -->
-    <ul class="right">
-        <li>
+    <nav class="navBar">
+        <div id="navCol1">
+            Put something here?
+        </div>
+        <div id="navCol2">
+            <img src="" alt="logo">
+        </div>
+        <div id="navCol3">
             <% if (user) { %>
-                <a href="/logout">Log Out</a>
+                <p>Welcome, <%= user.name %></p>
+                <form action="/logout">
+                    <button type="submit" class="">My Posts</button>
+                </form>
+                <form action="/logout">
+                    <button type="submit" class="loginout">Log Out</button>
+                </form>
             <% } else { %>
-                <a href="/auth/google">Login with Google</a>
+                <form action="/auth/google">
+                    <button type="submit" class="loginout">Login with Google</button>
+                </form>
             <% } %>
-        </li>
-    </ul>
+        </div>
+    </nav>
     <h1>
-        <%= title %>
+        <%= heading %>
     </h1>
