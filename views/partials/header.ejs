@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= tabTitle %> </title>
+    <title>
+        <%= tabTitle %>
+    </title>
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
@@ -16,20 +18,27 @@
             Put something here?
         </div>
         <div id="navCol2">
-            <img src="" alt="logo">
+            <a href='/'>
+                <img src="" alt="logo">
+            </a>
         </div>
         <div id="navCol3">
+            <form action="/contributors">
+                <button type="submit" class="">Contributors</button>
+            </form>
             <% if (user) { %>
-                <p>Welcome, <%= user.name %></p>
-                <form action="/logout">
-                    <button type="submit" class="">My Posts</button>
+                <p>
+                    Welcome, <%= user.name %>
+                </p>
+                <form action="/contributors/<%= user.name %> ">
+                    <button type="submit" class="">My Work</button>
                 </form>
                 <form action="/logout">
                     <button type="submit" class="loginout">Log Out</button>
                 </form>
             <% } else { %>
                 <form action="/auth/google">
-                    <button type="submit" class="loginout">Login with Google</button>
+                    <button type="submit" class="loginout">Login</button>
                 </form>
             <% } %>
         </div>

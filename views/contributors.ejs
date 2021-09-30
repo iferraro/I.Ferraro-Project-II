@@ -1,0 +1,9 @@
+<%- include("./partials/header") %>
+<ul>
+    <% contributors.forEach(function(c) { %>
+        <li>
+            <a href="/contributors/<%= c.name %>"><%= c.name %></a>
+        </li>
+    <% }); %> 
+</ul>
+<%- include("./partials/footer") %>

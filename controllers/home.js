@@ -5,5 +5,6 @@ module.exports = {
 };
 
 function index(req, res) {
-  res.render("homepage", {tabTitle: "Welcome to Site", heading: "Hello!" });
+  res.render("homepage", { tabTitle: "Welcome to Site", heading: "Welcome to Site" });
 }
+
