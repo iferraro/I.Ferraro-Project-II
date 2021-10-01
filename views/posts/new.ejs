@@ -1,0 +1,10 @@
+<%- include("../partials/header") %>
+<div id="loadFrame"></div>
+    <form action="/contributors/<%= contribId %>" method="POST">
+        <input type="file" name="image"> 
+        <label for="caption">Headline</label>
+        <input type="text" name="headline">
+        <button type="submit">Add to My Work</button>
+    </form>
+</div>
+<%- include("../partials/footer") %>
