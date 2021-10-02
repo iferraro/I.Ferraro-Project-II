@@ -7,3 +7,6 @@
 
 ### ERD
 ![ERD diagram](https://i.imgur.com/3k6iv0h.png)
+
+### Wireframe
+![Wireframe](https://i.imgur.com/0KtwFvy.png)
