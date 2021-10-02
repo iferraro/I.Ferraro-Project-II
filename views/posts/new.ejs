@@ -1,10 +1,19 @@
-<%- include("../partials/header") %>
 <div id="loadFrame"></div>
     <form action="/contributors/<%= contribId %>" method="POST">
-        <input type="file" name="image"> 
-        <label for="caption">Headline</label>
-        <input type="text" name="headline">
-        <button type="submit">Add to My Work</button>
+        <div id="previewFrame">
+
+        </div>
+        <input type="file" name="image">
+        <br>
+        <label for="location">Location</label>
+        <input type="text" name="location">
+        <br>
+        <label for="camera">Camera/Phone</label>
+        <input type="text" name="camera">
+        <br>
+        <label for="description">Description</label>
+        <input type="text" name="description">
+        <br>
+        <button type="submit">Add</button>
     </form>
 </div>
-<%- include("../partials/footer") %>

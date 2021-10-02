@@ -37,6 +37,7 @@ button {
 h1 {
   background-color: mediumseagreen;
   margin-top: 0;
+  margin-bottom: 0;
 }
 li {
   list-style: none;

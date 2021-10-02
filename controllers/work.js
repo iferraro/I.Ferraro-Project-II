@@ -1,4 +1,5 @@
-const User = require("../models/user");
+const Contributor = require("../models/contributor");
+
 module.exports = {
     show,
     new: newPost,
@@ -7,12 +8,13 @@ module.exports = {
 
 async function show(req, res) {
     console.log(req.params.id); // if id is not the name of a contributor, then redirect
-    const particularUsers = await User.find({name: req.params.id});
-    console.log(particularUsers);
-    if (particularUsers.length === 0) {
+    const particularContribs = await Contributor.find({name: req.params.id});
+    console.log(particularContribs);
+    if (particularContribs.length === 0) {
         res.redirect("/contributors");
     }
     else {
+        // show work of particular contributor
         res.render("profile", {tabTitle: req.params.id, heading: req.params.id});
     }
 }

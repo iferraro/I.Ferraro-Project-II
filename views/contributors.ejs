@@ -1,9 +1,7 @@
-<%- include("./partials/header") %>
-    <% contributors.forEach(function(c) { %>
-        <p>
-            <a href="/contributors/<%= c.name %>">
-                <%= c.name %>
-            </a>
-        </p>
-    <% }); %>
-<%- include("./partials/footer") %>
+<% contributors.forEach(function(c) { %>
+    <p>
+        <a href="/contributors/<%= c.name %>">
+            <%= c.name %>
+        </a>
+    </p>
+<% }); %>

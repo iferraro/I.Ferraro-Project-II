@@ -1,10 +1,11 @@
-const User = require('../models/user');
+const Contributor = require('../models/contributor');
 
 module.exports = {
   index
 };
 
-function index(req, res) {
-  res.render("homepage", { tabTitle: "Welcome to Site", heading: "Welcome to Site" });
+async function index(req, res) {
+  // find() function for images array
+  res.render("homepage", {tabTitle: "Blog of the Beetle", heading: "Welcome to Blog of the Beetle"});
 }
 

@@ -1,48 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= tabTitle %>
-    </title>
-    <link rel="stylesheet" href="stylesheets/style.css">
-</head>
-
-<body>
-    <!-- Add login UI here -->
-    <nav class="navBar">
-        <div id="navCol1">
-            Put something here?
-        </div>
-        <div id="navCol2">
-            <a href='/'>
-                <img src="" alt="logo">
-            </a>
-        </div>
-        <div id="navCol3">
-            <form action="/contributors">
-                <button type="submit" class="">Contributors</button>
+<!-- Add login UI here -->
+<nav id="navBar">
+    <div id="navCol1">
+        Put something here?
+    </div>
+    <div id="navCol2">
+        <a href='/'>
+            <img src="" alt="logo">
+        </a>
+    </div>
+    <div id="navCol3">
+        <form action="/contributors">
+            <button type="submit" class="">Contributors</button>
+        </form>
+        <% if (user) { %>
+            <p>
+                Welcome, <%= user.name %>
+            </p>
+            <form action="/contributors/<%= user.name %> ">
+                <button type="submit" class="">My Work</button>
             </form>
-            <% if (user) { %>
-                <p>
-                    Welcome, <%= user.name %>
-                </p>
-                <form action="/contributors/<%= user.name %> ">
-                    <button type="submit" class="">My Work</button>
-                </form>
-                <form action="/logout">
-                    <button type="submit" class="loginout">Log Out</button>
-                </form>
-            <% } else { %>
-                <form action="/auth/google">
-                    <button type="submit" class="loginout">Login</button>
-                </form>
-            <% } %>
-        </div>
-    </nav>
-    <h1>
-        <%= heading %>
-    </h1>
+            <form action="/logout">
+                <button type="submit" class="loginout">Log Out</button>
+            </form>
+        <% } else { %>
+            <form action="/auth/google">
+                <button type="submit" class="loginout">Login</button>
+            </form>
+        <% } %>
+    </div>
+</nav>
+<h1>
+    <%= heading %>
+</h1>

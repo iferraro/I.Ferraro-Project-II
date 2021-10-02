@@ -1,8 +1,9 @@
-<%- include("./partials/header") %>
 <h2>Place the work of <%= heading %> here</h2>
+<div id="gallery">
+
+</div>
 <% if (user) { %>
     <form action="/contributors/<%= user.name %>/new">
         <button type="submit">New Post</button>
     </form>
 <% } %> 
-<%- include("./partials/footer") %>
