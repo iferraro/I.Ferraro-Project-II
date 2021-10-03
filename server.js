@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
+const expressLayouts = require("express-ejs-layouts");
 
 // load the env vars
 require('dotenv').config();
@@ -37,6 +38,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(expressLayouts);
 
 app.use(passport.initialize());
 app.use(passport.session());
