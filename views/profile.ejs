@@ -1,12 +1,14 @@
 <h2>Place the work of <%= heading %> here</h2>
-<div id="gallery">
-    <% contribPosts.forEach(function(p) { %>
-        <img src=<% p.image %> alt="">
-    <% }); %> 
-</div>
 <% if (user) { %>
     <form action="/contributors/<%= user._id %>/new">
         <button type="submit">New Post</button>
     </form>
-    <img src="https://i.postimg.cc/Kv3dZzyK/P7242372.jpg" alt="ladybug">
 <% } %> 
+<div id="gallery">
+    <% contribPosts.forEach(function(p) { %>
+        <div id="postFrame">
+            <img src=<%= p.image %> alt="">
+        </div>
+    <% }); %> 
+</div>
+
