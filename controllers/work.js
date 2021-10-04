@@ -4,7 +4,8 @@ const Post = require("../models/post");
 module.exports = {
     show,
     new: newPost,
-    create
+    create,
+    addRating
 }
 
 async function show(req, res) {
@@ -30,9 +31,12 @@ async function create(req, res) {
     req.body.contributor = req.user._id;
     const newPost = await Post.create(req.body);
     console.log(newPost);
-    // Feed.create(newPost);
-    // console.log(Feed.find({}));
     res.redirect(`/contributors/${req.user._id}`);
+}
+
+async function addRating(req, res) {
+    console.log(req.body);
+    
 }
 
 

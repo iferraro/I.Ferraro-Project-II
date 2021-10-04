@@ -1,6 +1,7 @@
 var router = require('express').Router();
 const passport = require('passport');
 const homeCtrl = require("../controllers/home");
+const workCtrl = require("../controllers/work");
 
 // The root route renders our only view
 router.get('/', function(req, res) {
@@ -10,6 +11,7 @@ router.get('/', function(req, res) {
 });
 
 router.get("/home", homeCtrl.index);
+router.post("/home", workCtrl.addRating);
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(

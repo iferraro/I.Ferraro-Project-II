@@ -14,7 +14,7 @@ const postSchema = new mongoose.Schema({
     location: String,
     camera: String,
     description: String,
-    rating: [ratingSchema]
+    ratings: [ratingSchema]
 }, {
     timestamps: true
 });

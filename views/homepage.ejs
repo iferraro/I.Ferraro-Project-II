@@ -1,2 +1,22 @@
 <h1>Glad to see you</h1>
 <h2>Place all posts here</h2>
+<% posts.forEach(function(p) { %>
+    <div class="homePostFrame">
+        <img src=<%= p.image %> alt="">
+        <br>
+        <form action="/home" method="POST">
+            <label for="eval">Grade</label>
+            <input type="number" name="eval" min="1" max="5">
+            <label for="commentary">Commentary</label>
+            <input type="text" name="commentary">
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <div class="ratingFrame">
+            <% p.ratings.forEach(function(r) { %>
+                <p><%= r.eval %></p>
+                <br>
+                <p><%= r.commentary %></p>
+            <% }); %> 
+        </div> 
+    </div> 
+<% }); %> 

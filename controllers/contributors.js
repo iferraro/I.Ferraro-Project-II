@@ -5,7 +5,6 @@ module.exports = {
 
 async function show(req, res) {
     const contributors = await Contributor.find({});
-    console.log(contributors);
     res.render("contributors", { tabTitle: "Contributors", heading: "List of Contributors", contributors });
 }
 
