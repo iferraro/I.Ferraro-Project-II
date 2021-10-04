@@ -1,5 +1,12 @@
 const mongoose = require("mongoose");
 
+const ratingSchema = new mongoose.Schema({
+    eval: {type: Number, min: 1, max: 5},
+    commentary: String
+}, {
+    timestamps: true
+});
+
 const postSchema = new mongoose.Schema({
     image: String,
     contributor: {type: mongoose.Schema.Types.ObjectId, ref: "Contributor"},
@@ -7,7 +14,7 @@ const postSchema = new mongoose.Schema({
     location: String,
     camera: String,
     description: String,
-
+    rating: [ratingSchema]
 }, {
     timestamps: true
 });
