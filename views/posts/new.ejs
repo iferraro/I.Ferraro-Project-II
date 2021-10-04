@@ -1,9 +1,13 @@
 <div id="loadFrame"></div>
     <form action="/contributors/<%= contribId %>" method="POST">
-        <div id="previewFrame">
+        <!-- <div id="previewFrame">
 
-        </div>
-        <input type="file" name="image">
+        </div> -->
+        <label for="imageLink">Image Link</label>
+        <input type="text" name="image">
+        <br>
+        <label for="date">Date Taken</label>
+        <input type="date" name="date">
         <br>
         <label for="location">Location</label>
         <input type="text" name="location">

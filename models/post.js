@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const postSchema = new mongoose.Schema({
     image: String,
     contributor: {type: mongoose.Schema.Types.ObjectId, ref: "Contributor"},
+    date: Date,
     location: String,
     camera: String,
     description: String,
@@ -11,5 +12,5 @@ const postSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = model("Post", postSchema);
+module.exports = mongoose.model("Post", postSchema);
 

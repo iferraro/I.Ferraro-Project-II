@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
-const expressLayouts = require("express-ejs-layouts");
+const expressLayouts = require('express-ejs-layouts');
 
 // load the env vars
 require('dotenv').config();
@@ -26,8 +26,11 @@ const contributorRoutes = require("./routes/contributors");
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(expressLayouts);
+
 app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public'))); // original line
+app.use("/public", express.static("public")); // this new line causes every page to take from public/stylesheets/style.css instead of relative path for css
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -38,11 +41,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-app.use(expressLayouts);
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 // Add this middleware BELOW passport middleware
 app.use(function (req, res, next) {
