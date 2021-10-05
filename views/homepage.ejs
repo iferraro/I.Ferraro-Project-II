@@ -3,13 +3,13 @@
 <% posts.forEach(function(p) { %>
     <div class="homePostFrame">
         <p>
-            <%= p.contributor.name %>
+            <a href="/contributors/<%= p.contributor._id %>"><%= p.contributor.name %></a>
         </p>
         <!--also add data about photo-->
         <br>
         <img src=<%= p.image %> alt="">
         <br>
-        <form action="/home/<%= p._id %>" method="POST">
+        <form action="/home/<%= p._id %>" method="POST"> <!--goes to temporarily-existing page with a body that is only the post-->
             <label for="eval">Grade</label>
             <input type="number" name="eval" min="1" max="5">
             <label for="commentary">Commentary</label>

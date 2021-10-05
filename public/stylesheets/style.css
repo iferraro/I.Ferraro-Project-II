@@ -3,7 +3,7 @@ body {
   grid-template-rows: 1fr 9fr; */
   margin: 0;
   text-align: center;
-  /* background-color: black; */
+  background-color: burlywood;
 }
 nav {
   display: grid;
@@ -51,5 +51,8 @@ li {
 }
 .homePostFrame {
   background-color: steelblue;
+}
+.profPostFrame {
+  background-color: blueviolet;
 }
 

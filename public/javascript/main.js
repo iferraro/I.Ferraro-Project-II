@@ -1,5 +1,5 @@
-const homeFrameEl = document.querySelector("label");
+const postFrameEl = document.querySelector(".profPostFrame");
 
-homeFrameEl.addEventListener("click", function(evt) {
-    console.log(evt.target);
+postFrameEl.addEventListener("click", function() {
+    this.style.backgroundColor = "black";
 });

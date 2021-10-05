@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const ratingSchema = new mongoose.Schema({
+    judge: String,
     eval: {type: Number, min: 1, max: 5},
     commentary: String
 }, {

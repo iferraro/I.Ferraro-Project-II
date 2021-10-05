@@ -5,7 +5,8 @@ module.exports = {
     new: newPost,
     create,
     addRating,
-    delete: deletePost
+    delete: deletePost,
+    edit
 }
 
 async function show(req, res) {
@@ -35,6 +36,11 @@ async function create(req, res) {
 }
 
 async function addRating(req, res) {
+    if (req.user) {
+        req.body.judge = req.user.name;
+    } else {
+        req.body.judge = "Anonymous";
+    }
     console.log(req.body);
     const post = await Post.findById(req.params.id);
     post.ratings.push(req.body);
@@ -52,4 +58,10 @@ async function deletePost(req, res) {
     } catch(err) {
         res.send(err);
     }
+}
+
+async function edit(req, res) {
+    const foundPost = await Post.findById(req.params.ie);
+    console.log(foundPost);
+    res.render("posts/edit", {tabTitle: "Edit a Post", heading: "Edit a Post", foundPost});
 }

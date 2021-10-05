@@ -7,23 +7,32 @@
 <div class="gallery">
     <% contribPosts.forEach(function(p) { %>
         <div class="profPostFrame">
+            <p><%= p.description %></p>
             <img src=<%= p.image %> alt="">
+            <br>
+            <p>Date taken:<%= p.date.toLocaleDateString() %></p>
+            <p>Location: <%= p.location %></p>
+            <p>Camera/Phone: <%= p.camera %></p>
             <!--also add data about photo-->
+            <% if (user && user._id.toString() === p.contributor.toString()) { %> 
+                <form action="/contributors/<%= p.contributor %>/<%= p._id %>">
+                    <button type="submit">Edit</button>
+                   <!-- dropdown? -->
+                </form>
+                <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=DELETE" method="POST"> <!--goes to temporarily-existing page with a body that is only the post-->
+                    <button type="submit">Remove</button>
+                </form>
+                <div class="ratingFrame">
+                    <% p.ratings.forEach(function(r) { %>
+                        <div class="indRating">
+                            <p><%= r.judge %></p>
+                            <p><%= r.eval %></p>
+                            <p><%= r.commentary %></p>
+                        </div>
+                    <% }); %> 
+                </div> 
+            <% } %>
         </div>
-        <% if (user && user._id.toString() === p.contributor.toString()) { %> 
-            <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=DELETE" method="POST">
-                <button type="submit">Remove</button>
-            </form>
-            <div class="ratingFrame">
-                <% p.ratings.forEach(function(r) { %>
-                    <div class="indRating">
-                        <!--user name or Anonymous-->
-                        <p><%= r.eval %></p>
-                        <p><%= r.commentary %></p>
-                    </div>
-                <% }); %> 
-            </div> 
-        <% } %>
     <% }); %> 
 </div>
 
