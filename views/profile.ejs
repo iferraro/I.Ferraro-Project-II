@@ -8,7 +8,19 @@
     <% contribPosts.forEach(function(p) { %>
         <div class="profPostFrame">
             <img src=<%= p.image %> alt="">
+            <!--also add data about photo-->
         </div>
+        <% if (user) { %> 
+            <div class="ratingFrame">
+                <% p.ratings.forEach(function(r) { %>
+                    <div class="indRating">
+                        <p><%= r.eval %></p>
+                        <br>
+                        <p><%= r.commentary %></p>
+                    </div>
+                <% }); %> 
+            </div> 
+        <% } %>
     <% }); %> 
 </div>
 

@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 });
 
 router.get("/home", homeCtrl.index);
-router.post("/home", workCtrl.addRating);
+router.post("/home/:id", workCtrl.addRating);
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(

@@ -1,6 +1,5 @@
 const Contributor = require("../models/contributor");
 const Post = require("../models/post");
-// const Feed = require("../models/feed");
 module.exports = {
     show,
     new: newPost,
@@ -36,7 +35,12 @@ async function create(req, res) {
 
 async function addRating(req, res) {
     console.log(req.body);
-    
+    Post.findById(req.params.id, function(err, post) {
+        post.ratings.push(req.body);
+        post.save(function(err) {
+            res.redirect('/home');
+        });
+    });
 }
 
 

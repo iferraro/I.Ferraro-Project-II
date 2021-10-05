@@ -5,11 +5,17 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const posts = await Post.find({});
-  console.log(posts);
-  res.render("homepage", { tabTitle: "Blog of the Beetle", heading: "Welcome to Blog of the Beetle", posts });
+  try {
+    const posts = await Post.find({}).populate("contributor").exec();
+    console.log(posts);
+    res.render("homepage", { tabTitle: "Blog of the Beetle", heading: "Welcome to Blog of the Beetle", posts });
+  } catch(err) {
+    res.send(err);
+  }
   // if (user) {
   //   console.log(user);
   // }
 }
+
+
 

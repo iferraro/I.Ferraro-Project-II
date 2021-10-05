@@ -37,6 +37,10 @@ button {
   margin-left: 1vw;
   margin-right: 1vw;
 }
+input {
+  border: 0;
+  border-radius: 0;
+}
 h1 {
   background-color: mediumseagreen;
   margin-top: 0;
@@ -44,5 +48,8 @@ h1 {
 }
 li {
   list-style: none;
+}
+.homePostFrame {
+  background-color: steelblue;
 }
 
