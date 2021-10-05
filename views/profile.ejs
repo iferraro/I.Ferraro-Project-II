@@ -4,18 +4,21 @@
         <button type="submit">New Post</button>
     </form>
 <% } %> 
-<div id="gallery">
+<div class="gallery">
     <% contribPosts.forEach(function(p) { %>
         <div class="profPostFrame">
             <img src=<%= p.image %> alt="">
             <!--also add data about photo-->
         </div>
-        <% if (user) { %> 
+        <% if (user && user._id.toString() === p.contributor.toString()) { %> 
+            <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=DELETE" method="POST">
+                <button type="submit">Remove</button>
+            </form>
             <div class="ratingFrame">
                 <% p.ratings.forEach(function(r) { %>
                     <div class="indRating">
+                        <!--user name or Anonymous-->
                         <p><%= r.eval %></p>
-                        <br>
                         <p><%= r.commentary %></p>
                     </div>
                 <% }); %> 

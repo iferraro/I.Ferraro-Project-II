@@ -4,7 +4,8 @@ module.exports = {
     show,
     new: newPost,
     create,
-    addRating
+    addRating,
+    delete: deletePost
 }
 
 async function show(req, res) {
@@ -35,12 +36,20 @@ async function create(req, res) {
 
 async function addRating(req, res) {
     console.log(req.body);
-    Post.findById(req.params.id, function(err, post) {
-        post.ratings.push(req.body);
-        post.save(function(err) {
-            res.redirect('/home');
-        });
+    const post = await Post.findById(req.params.id);
+    post.ratings.push(req.body);
+    post.save(function(err) {
+        res.redirect('/home');
     });
 }
 
-
+async function deletePost(req, res) {
+    console.log(req.params.ie);
+    try {
+        const foundPost = await Post.findByIdAndDelete(req.params.ie);
+        console.log(foundPost);
+        res.redirect(`/contributors/${req.user._id}`);
+    } catch(err) {
+        res.send(err);
+    }
+}

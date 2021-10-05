@@ -5,4 +5,5 @@ router.get('/', contribCtrl.show);
 router.get("/:id", workCtrl.show);
 router.get("/:id/new", workCtrl.new);
 router.post("/:id", workCtrl.create);
+router.delete("/:id/:ie", workCtrl.delete);
 module.exports = router;

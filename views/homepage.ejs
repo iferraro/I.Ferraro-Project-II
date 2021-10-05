@@ -5,8 +5,9 @@
         <p>
             <%= p.contributor.name %>
         </p>
+        <!--also add data about photo-->
         <br>
-        <img src=<%=p.image %> alt="">
+        <img src=<%= p.image %> alt="">
         <br>
         <form action="/home/<%= p._id %>" method="POST">
             <label for="eval">Grade</label>
@@ -16,16 +17,4 @@
             <button type="submit">Submit Feedback</button>
         </form>
     </div>
-    <!-- <% if (user && user._id.toString() === p.contributor._id.toString()) { %>
-        <% if (p.ratings.length) { %>
-            <% p.ratings.forEach(function(r) { %>
-                <%= r.eval %>
-                    <%= r.commentary %>
-                <% }); %>
-            <% } else { %>
-                <h1>No ratings</h1>
-            <% }%>
-    <% } else { %>
-        <h1>Not same user</h1>
-    <% } %> -->
 <% }); %>
