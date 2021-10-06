@@ -61,7 +61,17 @@ async function deletePost(req, res) {
 }
 
 async function edit(req, res) {
-    const foundPost = await Post.findById(req.params.ie);
-    console.log(foundPost);
-    res.render("posts/edit", {tabTitle: "Edit a Post", heading: "Edit a Post", foundPost});
+    try {
+        const foundPost = await Post.findById(req.params.ie);
+        console.log(req.body);
+        foundPost.date = req.body.date;
+        foundPost.location = req.body.location;
+        foundPost.camera = req.body.camera;
+        foundPost.description = req.body.description;
+        foundPost.save();
+        console.log(foundPost);
+        res.redirect(`/contributors/${req.user._id}`);
+    } catch(err) {
+        res.send(err);
+    }
 }

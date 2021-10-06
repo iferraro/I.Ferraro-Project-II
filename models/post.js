@@ -11,7 +11,7 @@ const ratingSchema = new mongoose.Schema({
 const postSchema = new mongoose.Schema({
     image: String,
     contributor: {type: mongoose.Schema.Types.ObjectId, ref: "Contributor"},
-    date: Date,
+    date: String,
     location: String,
     camera: String,
     description: String,
