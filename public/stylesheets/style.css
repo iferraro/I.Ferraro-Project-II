@@ -1,15 +1,21 @@
+:root {
+  --main-bg-color: black;
+  --accent-color: #00FFDA;
+  --light-text-color: white;
+  --dark-text-color: black;
+}
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   /* text-align: center; */
   margin: 0;
-  background-color: black;
+  background-color: var(--main-bg-color);
 }
 nav {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
-  background-color: aqua;
+  background-color: var(--accent-color);
   height: 7.5vh;
   width: 100%;
   /* margin-bottom: 0; */
@@ -17,9 +23,6 @@ nav {
 #navCol1, #navCol2, #navCol3 {
   display: flex;
   align-items: center;
-}
-#navCol1 {
-  background-color: yellowgreen;
 }
 #navCol2 {
   justify-content: center;
@@ -29,7 +32,6 @@ nav {
   flex-direction: row;
   justify-content: right;
   align-items: center;
-  background-color: violet;
 }
 button {
   border: 0;
@@ -38,14 +40,15 @@ button {
   height: 5vh;
   margin-left: 1vw;
   margin-right: 1vw;
+  background-color: var(--accent-color);
 }
 h1 {
   margin-top: 0;
   margin-bottom: 0;
   width: 100%;
   text-align: center;
-  color: white;
-  background-color: black;
+  color: var(--light-text-color);
+  background-color: var(--main-bg-color);
 }
 li {
   list-style: none;
@@ -54,15 +57,17 @@ p {
   color: black;
   margin-top: 0;
 }
-.homePostFrame {
+.homePostFrame, .profPostFrame {
   display: flex;
   flex-direction: column;
   padding: 0;
-  background-color: black;
   max-width: 1200px;
 }
+.homePostFrame {
+  background-color: var(--main-bg-color);
+}
 .profPostFrame {
-  background-color: blueviolet;
+  background-color: var(--accent-color);
 }
 .picRow {
   display: flex;
@@ -75,7 +80,7 @@ img {
   border-radius: 0.75rem;
 }
 .feedbackBlock {
-  background-color: chartreuse;
+  background-color: var(--accent-color);
   margin-top: 0.5rem;
 }
 .captionRow, .metaBlock {
@@ -84,23 +89,21 @@ img {
 }
 .picInfoRow {
   display: grid;
-  grid-template-columns: 4fr 3fr;
-  /* background-color: turquoise; */
+  grid-template-columns: 4fr 2fr;
 }
 .meta {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* background-color: sandybrown; */
 }
 .metaBlock {
   margin-right: 0.5rem;
 }
 label {
-  color: black;
+  color: var(--dark-text-color);
 }
 select, textarea, .submit {
-  background-color: black;
-  color: chartreuse;
+  background-color: var(--main-bg-color);
+  color: var(--accent-color);
   width: 100%;
 }
 select {
@@ -108,21 +111,35 @@ select {
   border-radius: 0;
   margin: 0;
 }
-.submit {
-  margin-top: 0.5rem;
-  margin-left: 0;
-}
 textarea {
   margin-bottom: 0;
   border: 0;
   border-radius: 0;
 }
+.submit {
+  margin-top: 0.5rem;
+  margin-left: 0;
+  background-color: var(--main-bg-color);
+}
 a {
-  color: black;
+  color: var(--dark-text-color);
   text-decoration: none;
 }
 .contribLink {
-  color: white;
+  color: var(--light-text-color);
+}
+input {
+  border: 0;
+  border-radius: 0;
+  color: var(--accent-color);
+  background-color: var(--main-bg-color);
+}
+.newPageInput {
+  background-color: white;
+  color: black;
+}
+.newPageText {
+  color: var(--light-text-color);
 }
 
 

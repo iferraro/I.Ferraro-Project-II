@@ -1,7 +1,8 @@
-<h2>Place the work of <%= heading %> here</h2>
-<% if (user) { %>
+<% if (user && user._id.toString() === contribId.toString()) { %>
     <form action="/contributors/<%= user._id %>/new">
-        <button type="submit">New Post</button>
+        <h1 class="banner">
+            <button type="submit" class="submit">New Post</button>
+        </h1>
     </form>
 <% } %> 
 <div class="gallery">
@@ -10,29 +11,35 @@
             <img src=<%= p.image %> class="postImage" alt="">
             <br>
             <% if (user && user._id.toString() === p.contributor.toString()) { %> 
+                <div class="editFrame">
+
+                </div>
                 <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=PUT" method="POST">
-                    <label for="date">Date Taken</label>
+                    <label for="description"><strong>Description (add beetle species name, too, if you know it)</strong></label>
+                    <textarea name="description" placeholder="<%= p.description %>"></textarea>
+                    <label for="date"><strong>Date Taken</strong></label>
                     <input type="text" name="date" value="<%= p.date %>">
                     <br>
-                    <label for="location">Location</label>
+                    <label for="location"><strong>Location</strong></label>
                     <input type="text" name="location" value="<%= p.location %>">
-                    <label for="camera">Camera/Phone</label>
+                    <br>
+                    <label for="camera"><strong>Camera/Phone</strong></label>
                     <input type="text" name="camera" value="<%= p.camera %>">
                     <br>
-                    <label for="description">Description (add beetle species name, too, if you know it)</label>
-                    <input type="text" name="description" value="<%= p.description %>">
-                    <button type="submit">Save</button>
+                    <button type="submit" class="submit">Save</button>
                 </form>
                 <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=DELETE" method="POST"> <!--goes to temporarily-existing page with a body that is only the post-->
-                    <button type="submit">Remove</button>
+                    <button type="submit" class="submit">Remove</button>
                 </form>
                 <div class="ratingFrame">
                     <!-- dropdown? -->
                     <% p.ratings.forEach(function(r) { %>
                         <div class="indRating">
-                            <p><%= r.judge %></p>
-                            <p><%= r.eval %></p>
-                            <p><%= r.commentary %></p>
+                            <strong><%= r.judge %></strong>
+                            <br>
+                            <%= r.eval %>
+                            <br>
+                            <%= r.commentary %>
                         </div>
                     <% }); %> 
                 </div> 

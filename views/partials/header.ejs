@@ -8,22 +8,26 @@
         </a>
     </div>
     <div id="navCol3">
-        <form action="/contributors">
-            <button type="submit" class="">Contributors</button>
-        </form>
+        
         <% if (user) { %>
             <p>
                 Welcome, <%= user.name %>
             </p>
+            <form action="/contributors">
+                <button type="submit" class="submit">Contributors</button>
+            </form>
             <form action="/contributors/<%= user._id %>">
-                <button type="submit" class="">My Work</button>
+                <button type="submit" class="submit">My Work</button>
             </form>
             <form action="/logout">
-                <button type="submit" class="loginout">Log Out</button>
+                <button type="submit" class="submit">Log Out</button>
             </form>
         <% } else { %>
+            <form action="/contributors">
+                <button type="submit" class="submit">Contributors</button>
+            </form>
             <form action="/auth/google">
-                <button type="submit" class="loginout">Login</button>
+                <button type="submit" class="submit">Login</button>
             </form>
         <% } %>
     </div>

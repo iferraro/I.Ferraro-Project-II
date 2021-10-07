@@ -14,7 +14,7 @@ async function show(req, res) {
         const contribId = req.params.id;
         const particularContrib = await Contributor.findById(contribId);
         const contribPosts = await Post.find({contributor: contribId}); // finds all posts made by this particular contributor
-        res.render("profile", { tabTitle: particularContrib.name, heading: particularContrib.name, contribPosts }); // show work of particular contributor
+        res.render("profile", { tabTitle: particularContrib.name, heading: particularContrib.name, contribId, contribPosts }); // show work of particular contributor
     } catch (err) {
         res.send(err); // if id is not that of a contributor, then error
     }
