@@ -1,5 +1,5 @@
-const postFrameEl = document.querySelector(".profPostFrame");
+const infoBox = document.querySelector(".infoBox1");
 
 postFrameEl.addEventListener("click", function() {
-    this.style.backgroundColor = "black";
+    this.style.backgroundColor = "green";
 });

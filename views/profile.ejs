@@ -7,7 +7,7 @@
 <div class="gallery">
     <% contribPosts.forEach(function(p) { %>
         <div class="profPostFrame">
-            <img src=<%= p.image %> alt="">
+            <img src=<%= p.image %> class="postImage" alt="">
             <br>
             <% if (user && user._id.toString() === p.contributor.toString()) { %> 
                 <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=PUT" method="POST">
@@ -19,7 +19,7 @@
                     <label for="camera">Camera/Phone</label>
                     <input type="text" name="camera" value="<%= p.camera %>">
                     <br>
-                    <label for="description">Description</label>
+                    <label for="description">Description (add beetle species name, too, if you know it)</label>
                     <input type="text" name="description" value="<%= p.description %>">
                     <button type="submit">Save</button>
                 </form>

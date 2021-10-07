@@ -1,15 +1,17 @@
 body {
-  /* display: grid;
-  grid-template-rows: 1fr 9fr; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* text-align: center; */
   margin: 0;
-  text-align: center;
-  background-color: burlywood;
+  background-color: black;
 }
 nav {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   background-color: aqua;
   height: 7.5vh;
+  width: 100%;
   /* margin-bottom: 0; */
 }
 #navCol1, #navCol2, #navCol3 {
@@ -37,22 +39,88 @@ button {
   margin-left: 1vw;
   margin-right: 1vw;
 }
-input {
-  border: 0;
-  border-radius: 0;
-}
 h1 {
-  background-color: mediumseagreen;
   margin-top: 0;
   margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background-color: black;
 }
 li {
   list-style: none;
 }
+p {
+  color: black;
+  margin-top: 0;
+}
 .homePostFrame {
-  background-color: steelblue;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background-color: black;
+  max-width: 1200px;
 }
 .profPostFrame {
   background-color: blueviolet;
 }
+.picRow {
+  display: flex;
+}
+img {
+  max-width: 100%;
+}
+.captionRow, .meta, .feedbackBlock {
+  padding: 0.5rem;
+}
+.captionRow {
+  background-color: slategray;
+}
+.picInfoRow {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  background-color: turquoise;
+}
+.meta {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  background-color: sandybrown;
+}
+label {
+  color: black;
+}
+select {
+  width: 75px;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+.submit {
+  margin-top: 0.5rem;
+}
+.infoBox1 {
+  background-color: white;
+  padding: 0;
+}
+.feedbackBox {
+  background-color: chartreuse;
+}
+.infoBox1, .feedbackBox {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+}
+textarea {
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.contribLink {
+  color: white;
+}
+
 

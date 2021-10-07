@@ -1,24 +1,48 @@
-<h1>Glad to see you</h1>
-<h2>Place all posts here</h2>
 <% posts.forEach(function(p) { %>
     <div class="homePostFrame">
-        <p>
-            <a href="/contributors/<%= p.contributor._id %>"><%= p.contributor.name %></a>
-        </p>
         <!--also add data about photo-->
-        <br>
-        <img src=<%= p.image %> alt="">
-        <br>
-        <p><%= p.description %></p>
-        <p><%= p.date %></p>
-        <p><%= p.location %></p>
-        <p><%= p.camera %></p>
-        <form action="/home/<%= p._id %>" method="POST"> <!--goes to temporarily-existing page with a body that is only the post-->
-            <label for="eval">Grade</label>
-            <input type="number" name="eval" min="1" max="5">
-            <label for="commentary">Commentary</label>
-            <input type="text" name="commentary">
-            <button type="submit">Submit Feedback</button>
-        </form>
+        <div class="picRow">
+            <img src=<%= p.image %> class="postImage" alt="">
+        </div>
+        <div class = captionRow>
+            <strong><%= p.description %></strong>
+        </div>
+        <div class="picInfoRow">
+            <div class="meta">
+                <div class="metaBlock">
+                    <strong>Contributor</strong> 
+                    <br>
+                    <a href="/contributors/<%= p.contributor._id %>"><%= p.contributor.name %></a>
+                </div>
+                <div class="metaBlock">
+                    <strong>Date Taken</strong><br><%= p.date %>
+                </div>
+                <div class="metaBlock">
+                    <strong>Location</strong><br><%= p.location %>
+                </div>
+                <div class="metaBlock">
+                    <strong>Camera/Phone</strong><br><%= p.camera %>
+                </div>
+            </div>
+            <div class="feedBackBlock">
+                <form action="/home/<%= p._id %>" method="POST"> <!--goes to temporarily-existing page with a body that is only the post-->
+                    <label for="eval"><strong>Grade</strong></label>
+                    <br>
+                    <select name="eval" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <br>
+                    <label for="commentary"><strong>Commentary</strong></label>
+                    <br>
+                    <textarea name="commentary"></textarea>
+                    <br>
+                    <button type="submit" class="submit">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
     </div>
 <% }); %>
