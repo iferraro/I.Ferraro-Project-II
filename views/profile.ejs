@@ -1,8 +1,9 @@
 <% if (user && user._id.toString() === contribId.toString()) { %>
     <form action="/contributors/<%= user._id %>/new">
-        <button type="submit">New Post</button>
+        <button type="submit" class="submit">Create a New Post</button>
     </form>
 <% } %> 
+<br>
 <div class="gallery">
     <% contribPosts.forEach(function(p) { %>
         <div class="postFrame">
@@ -14,24 +15,29 @@
                     <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=PUT" method="POST">
                         <label for="description">Description (add genus and species name, too, if you know it): </label>
                         <textarea name="description" placeholder="<%= p.description %>"></textarea>
+                        <br>
                         <label for="date">Date Taken: </label>
                         <input type="text" name="date" value="<%= p.date %>">
                         <label for="location">Location: </label>
                         <input type="text" name="location" value="<%= p.location %>">
                         <label for="camera">Camera/Phone: </label>
                         <input type="text" name="camera" value="<%= p.camera %>">
-                        <button type="submit">Save</button>
+                        <div class="frame">
+                            <button type="submit" class="submit">Save</button>
+                        </div>
                     </form>
+                </div>
+                <div class="frame">
                     <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=DELETE" method="POST"> <!--goes to temporarily-existing page with a "body" that is only the post-->
-                        <button type="submit">Remove</button>
+                        <button type="submit" class="warning">Remove</button>
                     </form>
                 </div>
                 <div class="frame"> <!--given feedback-->
                     <% p.ratings.forEach(function(r) { %>
                         <p class="textBox">
-                            <label for="judge"><%= r.judge %></label>
+                            <strong><%= r.judge %></strong>
                             <br>
-                            <%= r.eval %> out of 5
+                            Grade: <%= r.eval %>
                             <br>
                             "<%= r.commentary %>"
                         </p>
@@ -39,24 +45,12 @@
                 </div> 
             <% } else { %>
                 <div class="frame"> <!--meta-->
-                    <p class="textBox">Date Taken: <%= p.date %></p> 
-                    <p class="textBox">Location: <%= p.location %></p>
-                    <p class="textBox">Camera/Phone: <%= p.camera %></p>
+                    <label for="description">Description</label> <p class="textBox"><%= p.description %></p>
                 </div>
-                <div class="frame"> <!--to give feedback-->
-                    <form action="/home/contributors/<%= p._contributor %>" method="POST"> <!--goes to temporarily-existing page with a "body" that is only the post-->
-                        <label for="eval">Grade</label>
-                        <select name="eval">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <label for="commentary">Commentary</label>
-                        <textarea name="commentary"></textarea>
-                        <button type="submit" class="submit">Submit Feedback</button>
-                    </form>
+                <div class="frame">
+                    <label for="date-taken">Date Taken</label> <p class="textBox"><%= p.date %></p> 
+                    <label for="location">Location</label> <p class="textBox"><%= p.location %></p>
+                    <label for="camera/phone">Camera/Phone</label><p class="textBox"><%= p.camera %></p>
                 </div>
             <% } %>
         </div>

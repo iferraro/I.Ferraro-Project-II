@@ -50,7 +50,6 @@ async function addRating(req, res) {
 }
 
 async function deletePost(req, res) {
-    console.log(req.params.ie);
     try {
         const foundPost = await Post.findByIdAndDelete(req.params.ie);
         console.log(foundPost);

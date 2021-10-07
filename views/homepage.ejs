@@ -4,30 +4,28 @@
             <img src=<%= p.image %> alt="">
         </div>
         <div class="frame"> <!--description-->
-            <p class="textBox"><%= p.description %></p>
+            <label for="description">Description</label> <p class="textBox"><%= p.description %></p>
         </div>
         <div class="frame"> <!-- meta-->
-            <p class="textBox">Contributor: <a href="/contributors/<%= p.contributor._id %>"><%= p.contributor.name %></a></p>
-            <p class="textBox">Date Taken: <%= p.date %></p> 
-            <p class="textBox">Location: <%= p.location %></p>
-            <p class="textBox">Camera/Phone: <%= p.camera %></p>
+            <label for="contributor">Contributor</label> <p class="textBox"><a href="/contributors/<%= p.contributor._id %>"><%= p.contributor.name %></a></p>
+            <label for="date-taken">Date Taken</label> <p class="textBox"><%= p.date %></p> 
+            <label for="location">Location</label> <p class="textBox"><%= p.location %></p>
+            <label for="camera/phone">Camera/Phone</label><p class="textBox"><%= p.camera %></p>
         </div>
         <div class="frame"> <!--feedback-->
-            <p class="textBox">
-                <form action="/home/<%= p._id %>" method="POST"> <!--goes to temporarily-existing page with a "body" that is only the post-->
-                    <label for="eval">Grade</label>
-                    <select name="eval">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <label for="commentary">Commentary</label>
-                    <textarea name="commentary"></textarea>
-                    <button type="submit" class="submit">Submit Feedback</button>
-                </form>
-            </p>
+            <form action="/home/<%= p._id %>" method="POST"> <!--goes to temporarily-existing page with a "body" that is only the post-->
+                <label for="eval">Grade</label>
+                <select name="eval">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="F">F</option>
+                </select>
+                <label for="commentary">Commentary</label>
+                <textarea name="commentary"></textarea>
+                <button type="submit" class="submit">Submit Feedback</button>
+            </form>
         </div>
     </div>
 <% }); %>

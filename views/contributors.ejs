@@ -1,7 +1,6 @@
 <% contributors.forEach(function(c) { %>
-    <p>
-        <a href="/contributors/<%= c._id %>" class="link">
-            <%= c.name %>
-        </a>
+    <p class="textBox">
+        <a href="/contributors/<%= c._id %>"><%= c.name %></a>
     </p>
+    <br>
 <% }); %>
