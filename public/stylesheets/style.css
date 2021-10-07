@@ -70,45 +70,47 @@ p {
 img {
   max-width: 100%;
 }
-.captionRow, .meta, .feedbackBlock {
+.captionRow, .metaBlock, .feedbackBlock {
   padding: 0.5rem;
+  border-radius: 0.75rem;
 }
-.captionRow {
-  background-color: slategray;
+.feedbackBlock {
+  background-color: chartreuse;
+  margin-top: 0.5rem;
+}
+.captionRow, .metaBlock {
+  background-color: white;
+  margin-top: 0.5rem;
 }
 .picInfoRow {
   display: grid;
   grid-template-columns: 4fr 3fr;
-  background-color: turquoise;
+  /* background-color: turquoise; */
 }
 .meta {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  background-color: sandybrown;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* background-color: sandybrown; */
+}
+.metaBlock {
+  margin-right: 0.5rem;
 }
 label {
   color: black;
 }
+select, textarea, .submit {
+  background-color: black;
+  color: chartreuse;
+  width: 100%;
+}
 select {
-  width: 75px;
   border: 0;
   border-radius: 0;
   margin: 0;
 }
 .submit {
   margin-top: 0.5rem;
-}
-.infoBox1 {
-  background-color: white;
-  padding: 0;
-}
-.feedbackBox {
-  background-color: chartreuse;
-}
-.infoBox1, .feedbackBox {
-  padding: 0.5rem;
-  border-radius: 0.75rem;
+  margin-left: 0;
 }
 textarea {
   margin-bottom: 0;
