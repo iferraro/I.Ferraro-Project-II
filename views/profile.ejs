@@ -15,7 +15,7 @@
 
                 </div>
                 <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=PUT" method="POST">
-                    <label for="description"><strong>Description (add beetle species name, too, if you know it)</strong></label>
+                    <label for="description"><strong>Description (add genus and species name, too, if you know it)</strong></label>
                     <textarea name="description" placeholder="<%= p.description %>"></textarea>
                     <label for="date"><strong>Date Taken</strong></label>
                     <input type="text" name="date" value="<%= p.date %>">
@@ -45,7 +45,7 @@
                 </div> 
             <% } else { %>
                 <p><%= p.description %></p>
-                <p>Date Taken:<%= p.date %></p>
+                <p>Date Taken: <%= p.date %></p>
                 <p>Location: <%= p.location %></p>
                 <p>Camera/Phone: <%= p.camera %></p>
             <% } %>
