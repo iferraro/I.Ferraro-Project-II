@@ -1,53 +1,63 @@
 <% if (user && user._id.toString() === contribId.toString()) { %>
     <form action="/contributors/<%= user._id %>/new">
-        <h1 class="banner">
-            <button type="submit" class="submit">New Post</button>
-        </h1>
+        <button type="submit">New Post</button>
     </form>
 <% } %> 
 <div class="gallery">
     <% contribPosts.forEach(function(p) { %>
-        <div class="profPostFrame">
-            <img src=<%= p.image %> class="postImage" alt="">
-            <br>
+        <div class="postFrame">
+            <div class="frame"> <!--image-->
+                <img src=<%= p.image %> alt=""> 
+            </div>
             <% if (user && user._id.toString() === p.contributor.toString()) { %> 
-                <div class="editFrame">
-
+                <div class="frame"> <!--to edit meta-->
+                    <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=PUT" method="POST">
+                        <label for="description">Description (add genus and species name, too, if you know it): </label>
+                        <textarea name="description" placeholder="<%= p.description %>"></textarea>
+                        <label for="date">Date Taken: </label>
+                        <input type="text" name="date" value="<%= p.date %>">
+                        <label for="location">Location: </label>
+                        <input type="text" name="location" value="<%= p.location %>">
+                        <label for="camera">Camera/Phone: </label>
+                        <input type="text" name="camera" value="<%= p.camera %>">
+                        <button type="submit">Save</button>
+                    </form>
+                    <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=DELETE" method="POST"> <!--goes to temporarily-existing page with a "body" that is only the post-->
+                        <button type="submit">Remove</button>
+                    </form>
                 </div>
-                <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=PUT" method="POST">
-                    <label for="description"><strong>Description (add genus and species name, too, if you know it)</strong></label>
-                    <textarea name="description" placeholder="<%= p.description %>"></textarea>
-                    <label for="date"><strong>Date Taken</strong></label>
-                    <input type="text" name="date" value="<%= p.date %>">
-                    <br>
-                    <label for="location"><strong>Location</strong></label>
-                    <input type="text" name="location" value="<%= p.location %>">
-                    <br>
-                    <label for="camera"><strong>Camera/Phone</strong></label>
-                    <input type="text" name="camera" value="<%= p.camera %>">
-                    <br>
-                    <button type="submit" class="submit">Save</button>
-                </form>
-                <form action="/contributors/<%= p.contributor %>/<%= p._id %>?_method=DELETE" method="POST"> <!--goes to temporarily-existing page with a body that is only the post-->
-                    <button type="submit" class="submit">Remove</button>
-                </form>
-                <div class="ratingFrame">
-                    <!-- dropdown? -->
+                <div class="frame"> <!--given feedback-->
                     <% p.ratings.forEach(function(r) { %>
-                        <div class="indRating">
-                            <strong><%= r.judge %></strong>
+                        <p class="textBox">
+                            <label for="judge"><%= r.judge %></label>
                             <br>
-                            <%= r.eval %>
+                            <%= r.eval %> out of 5
                             <br>
-                            <%= r.commentary %>
-                        </div>
+                            "<%= r.commentary %>"
+                        </p>
                     <% }); %> 
                 </div> 
             <% } else { %>
-                <p><%= p.description %></p>
-                <p>Date Taken: <%= p.date %></p>
-                <p>Location: <%= p.location %></p>
-                <p>Camera/Phone: <%= p.camera %></p>
+                <div class="frame"> <!--meta-->
+                    <p class="textBox">Date Taken: <%= p.date %></p> 
+                    <p class="textBox">Location: <%= p.location %></p>
+                    <p class="textBox">Camera/Phone: <%= p.camera %></p>
+                </div>
+                <div class="frame"> <!--to give feedback-->
+                    <form action="/home/contributors/<%= p._contributor %>" method="POST"> <!--goes to temporarily-existing page with a "body" that is only the post-->
+                        <label for="eval">Grade</label>
+                        <select name="eval">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <label for="commentary">Commentary</label>
+                        <textarea name="commentary"></textarea>
+                        <button type="submit" class="submit">Submit Feedback</button>
+                    </form>
+                </div>
             <% } %>
         </div>
     <% }); %> 
