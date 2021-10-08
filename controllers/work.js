@@ -22,7 +22,7 @@ async function show(req, res) {
 
 function newPost(req, res) {
     if (req.user) {
-        res.render("posts/new", { tabTitle: "New Post", heading: "Add Something New to the Site", contribId: req.user._id });
+        res.render("posts/new", { tabTitle: "New Post", heading: "Add Something New", contribId: req.user._id });
     } else {
         res.redirect(`/contributors/${req.params.id}`);
     }

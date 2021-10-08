@@ -1,31 +1,29 @@
 <nav id="navBar">
-    <div id="navCol1">  
-    </div>
-    <div id="navCol2">
+    <div id="navCol1">
         <a href='/'>
-            <img src="" alt="logo">
+            <img src="https://i.imgur.com/M98KjA9.png" alt="logo" class="logo">
         </a>
     </div>
-    <div id="navCol3">
+    <div id="navCol2">
         <% if (user) { %>
             <p>
                 Welcome, <%= user.name %>
             </p>
             <form action="/contributors">
-                <button type="submit">Contributors</button>
+                <button type="submit" class="submit">Contributors</button>
             </form>
             <form action="/contributors/<%= user._id %>">
-                <button type="submit">My Work</button>
+                <button type="submit" class="submit">My Work</button>
             </form>
             <form action="/logout">
-                <button type="submit">Log Out</button>
+                <button type="submit" class="submit">Log Out</button>
             </form>
         <% } else { %>
             <form action="/contributors">
-                <button type="submit">Contributors</button>
+                <button type="submit" class="submit">Contributors</button>
             </form>
             <form action="/auth/google">
-                <button type="submit">Login</button>
+                <button type="submit" class="submit">Login</button>
             </form>
         <% } %>
     </div>
