@@ -2,7 +2,7 @@
 # Blog of the Beetle
 
 ## Intro
-Blog of the Beetle (BOTB) is a site at which users can upload pictures of the ubiquitous insect. The inspiration for the site was my personal hobby of taking pictures of bugs and documenting their species names. Users who log onto the site are known as contributors. One special feature worth noting is that comments on posts are only visible to the post's owner 
+Blog of the Beetle (BOTB) is a site at which users can upload their pictures of the ubiquitous insect. The inspiration for the site was my personal hobby of taking pictures of bugs and documenting their species names. Users who log onto the site are known as contributors. One special feature worth noting is that comments on posts are only visible to the post's owner 
 
 ## Planning
 
