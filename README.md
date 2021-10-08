@@ -29,4 +29,4 @@ Editing was done with HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, and M
 [Heroku](https://blog-of-the-beetle.herokuapp.com/home)
 
 ## Next Steps
-There are two features that would greatly increase the user experience on BOTB. The first would be enabling image uploads directly from a local disk drive, as opposed to only an image link. The second are animations via DOM manipulation, which would turn the wireframe concept into reality.
+There are two features that would greatly increase the user experience on BOTB. The first would be enabling image uploads directly from a local disk drive, as opposed to only an image link. The second are animations via DOM manipulation, which would turn the wireframe concept into reality. Lastly, displaying the posts chronologically instead of by creator would be more intuitive.  
