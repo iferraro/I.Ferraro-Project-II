@@ -20,7 +20,7 @@ I created the logo using a free vector graphics software called [Inkscape](https
 
 ## Screenshots
 ![nav](https://i.imgur.com/JMkEoPK.png)
-![picture info](https://i.imgur.com/JMkEoPK.png)
+![picture info](https://i.imgur.com/jMLe3t0.png)
 
 ## Technologies used
 Editing was done with HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, and Mongoose in Visual Studio Code. Browser testing was done in Microsoft Edge.
