@@ -12,8 +12,8 @@ Blog of the Beetle (BOTB) is a site at which users can upload their pictures of 
 ### ERD
 ![ERD diagram](https://i.imgur.com/saOnV42.png)
 
-### Wireframe
-![Wireframe (Concept)](https://i.imgur.com/0KtwFvy.png)
+### Wireframe (Concept)
+![Wireframe](https://i.imgur.com/0KtwFvy.png)
 
 ### Logo
 I created the logo using a free vector graphics software called [Inkscape](https://inkscape.org/).
