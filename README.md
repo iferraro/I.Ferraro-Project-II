@@ -23,7 +23,7 @@ I created the logo using a free vector graphics software called [Inkscape](https
 ![picture info](https://i.imgur.com/jMLe3t0.png)
 
 ## Technologies used
-Editing was done with HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, and Mongoose in Visual Studio Code. Browser testing was done in Microsoft Edge.
+Editing was done with HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, Passport, and Mongoose in Visual Studio Code. OAuth was done via Google API. Browser testing was done in Microsoft Edge.
 
 ## Link to Site
 [Heroku](https://blog-of-the-beetle.herokuapp.com/home)
